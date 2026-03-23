@@ -1,0 +1,67 @@
+{
+  "name": "frontend-eslint-config",
+  "version": "0.1.0",
+  "description": "Shareable ESLint 9+ flat config with interactive CLI setup",
+  "type": "module",
+  "bin": {
+    "frontend-eslint-config": "./dist/cli/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "postinstall": "node dist/scripts/postinstall.js",
+    "prepublishOnly": "npm run build && npm run test:run"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-import-resolver-typescript": "^4.0.0",
+    "eslint-plugin-astro": "^2.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-vue": "^10.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@typescript-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "@typescript-eslint/parser": {
+      "optional": true
+    },
+    "eslint-plugin-vue": {
+      "optional": true
+    },
+    "eslint-plugin-astro": {
+      "optional": true
+    },
+    "eslint-plugin-import": {
+      "optional": true
+    },
+    "eslint-import-resolver-typescript": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@clack/prompts": "^1.1.0",
+    "@types/node": "^25.5.0",
+    "picocolors": "^1.1.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  }
+}
