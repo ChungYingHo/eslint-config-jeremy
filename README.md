@@ -9,7 +9,7 @@
 Shareable ESLint 9+ flat config for Astro / Vue projects with an interactive CLI.
 
 - 自動偵測 TypeScript、Package Manager
-- 單選框架 plugin（Vue / Astro）避免 parser 衝突
+- 可複選框架 plugin（Vue / Astro 可同時啟用，支援 Astro islands 使用 Vue）
 - 可選強制絕對路徑 import
 - 自動寫入 `.vscode/settings.json` 存檔自動 fix
 
@@ -42,7 +42,7 @@ CLI 會依序進行：
 
 1. 偵測 Node.js 版本、Package Manager、是否已有 ESLint config
 2. 自動偵測 `package.json` 中是否安裝 TypeScript
-3. 詢問框架 plugin（單選）：Vue / Astro / 不使用
+3. 詢問框架 plugin（可複選）：Vue / Astro，可同時選取以支援 Astro islands 中使用 Vue
 4. 詢問是否強制絕對路徑 import
 5. 詢問是否設定存檔自動 fix（寫入 `.vscode/settings.json`）
 6. 詢問 config 副檔名（`.js` / `.mjs`）

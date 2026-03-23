@@ -35,11 +35,11 @@ npm install -D frontend-eslint-config
 3. 自動偵測 TS
     - 讀取 package.json 的 devDependencies，若已安裝 typescript 則自動帶入 TS 相關 eslint 套件（@typescript-eslint/eslint-plugin、@typescript-eslint/parser）並設定對應 rules
     - 若未安裝 typescript 則跳過，維持純 JS 設定
-4. 詢問使用者是否選裝框架 eslint plugin，並寫入 recommended 設定（單選）
+4. 詢問使用者是否選裝框架 eslint plugin，並寫入 recommended 設定（可複選）
     - vue eslint
     - astro eslint
-    - 不使用框架 plugin
-    > 限制單選以避免多框架 plugin 的 parser 衝突（例如 Astro + Vue 同時啟用時 parser 設定互相覆蓋）。若使用者的專案確實需要多框架（如 Astro + Vue），應由使用者在產出的 eslint.config.js 上自行擴充。
+    - 不選（空白送出）
+    > Vue 與 Astro 可同時選取。兩者各自針對不同副檔名（`.vue` vs `.astro`），在 ESLint 9 flat config 架構下每個 config object 擁有獨立的 `files` glob 與 `languageOptions.parser`，不會產生 parser 衝突。此設計支援 Astro islands 中使用 Vue 元件的專案。
 5. 詢問使用者是否強制使用絕對路徑
     - Y: 寫入禁止相對路徑的規則 & 安裝 eslint-plugin-import。若步驟 3 偵測到有 TS，額外安裝 eslint-import-resolver-typescript 並檢查 tsconfig.json 是否存在做相關設定。純 JS 則檢查是否需要建立 jsconfig.json
     - N: 維持預設 eslint.config.js

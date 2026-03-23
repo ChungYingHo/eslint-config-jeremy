@@ -194,6 +194,300 @@ export default [
 "
 `;
 
+exports[`buildConfigSource > snapshot: astro + vue (JS) 1`] = `
+"import astro from 'eslint-plugin-astro'
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintPluginVue from 'eslint-plugin-vue'
+import vueParser from 'vue-eslint-parser'
+
+export default [
+  ...astro.configs.recommended,
+
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...eslintPluginVue.configs['flat/recommended'],
+
+  {
+    files: ['*.vue', '**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tseslint.parser,
+        sourceType: 'module',
+        extraFileExtensions: ['.vue'],
+      },
+    },
+  },
+
+  {
+    rules: {
+      quotes: ['error', 'single', { avoidEscape: true }],
+      semi: ['error', 'never'],
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'eol-last': ['error', 'always'],
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      eqeqeq: ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-useless-return': 'warn',
+      'no-else-return': 'warn',
+      'no-unexpected-multiline': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'vue/html-quotes': ['error', 'single', { avoidEscape: true }],
+      'vue/html-indent': ['error', 2],
+      'vue/attributes-order': ['error', { alphabetical: true }],
+      'vue/multi-word-component-names': 'off',
+      'vue/no-unused-components': 'warn',
+      'no-undef': 'off',
+    },
+  },
+
+  {
+    files: ['**/*.astro'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+]
+"
+`;
+
+exports[`buildConfigSource > snapshot: astro + vue + TS + absolutePath 1`] = `
+"import astro from 'eslint-plugin-astro'
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintPluginVue from 'eslint-plugin-vue'
+import vueParser from 'vue-eslint-parser'
+import importPlugin from 'eslint-plugin-import'
+
+export default [
+  ...astro.configs.recommended,
+
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...eslintPluginVue.configs['flat/recommended'],
+
+  {
+    files: ['*.vue', '**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tseslint.parser,
+        sourceType: 'module',
+        extraFileExtensions: ['.vue'],
+      },
+    },
+  },
+
+  {
+    rules: {
+      quotes: ['error', 'single', { avoidEscape: true }],
+      semi: ['error', 'never'],
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'eol-last': ['error', 'always'],
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      eqeqeq: ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-useless-return': 'warn',
+      'no-else-return': 'warn',
+      'no-unexpected-multiline': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: false,
+          fixStyle: 'inline-type-imports',
+        },
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'vue/html-quotes': ['error', 'single', { avoidEscape: true }],
+      'vue/html-indent': ['error', 2],
+      'vue/attributes-order': ['error', { alphabetical: true }],
+      'vue/multi-word-component-names': 'off',
+      'vue/no-unused-components': 'warn',
+      'no-undef': 'off',
+      'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
+      'import/no-relative-parent-imports': 'error',
+      'import/no-relative-packages': 'error',
+    },
+  },
+
+  {
+    files: ['**/*.astro'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+]
+"
+`;
+
+exports[`buildConfigSource > snapshot: astro + vue + TS 1`] = `
+"import astro from 'eslint-plugin-astro'
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintPluginVue from 'eslint-plugin-vue'
+import vueParser from 'vue-eslint-parser'
+
+export default [
+  ...astro.configs.recommended,
+
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...eslintPluginVue.configs['flat/recommended'],
+
+  {
+    files: ['*.vue', '**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tseslint.parser,
+        sourceType: 'module',
+        extraFileExtensions: ['.vue'],
+      },
+    },
+  },
+
+  {
+    rules: {
+      quotes: ['error', 'single', { avoidEscape: true }],
+      semi: ['error', 'never'],
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'eol-last': ['error', 'always'],
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      eqeqeq: ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-useless-return': 'warn',
+      'no-else-return': 'warn',
+      'no-unexpected-multiline': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: false,
+          fixStyle: 'inline-type-imports',
+        },
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'vue/html-quotes': ['error', 'single', { avoidEscape: true }],
+      'vue/html-indent': ['error', 2],
+      'vue/attributes-order': ['error', { alphabetical: true }],
+      'vue/multi-word-component-names': 'off',
+      'vue/no-unused-components': 'warn',
+      'no-undef': 'off',
+    },
+  },
+
+  {
+    files: ['**/*.astro'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+]
+"
+`;
+
+exports[`buildConfigSource > snapshot: astro + vue + absolutePath 1`] = `
+"import astro from 'eslint-plugin-astro'
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintPluginVue from 'eslint-plugin-vue'
+import vueParser from 'vue-eslint-parser'
+import importPlugin from 'eslint-plugin-import'
+
+export default [
+  ...astro.configs.recommended,
+
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...eslintPluginVue.configs['flat/recommended'],
+
+  {
+    files: ['*.vue', '**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tseslint.parser,
+        sourceType: 'module',
+        extraFileExtensions: ['.vue'],
+      },
+    },
+  },
+
+  {
+    rules: {
+      quotes: ['error', 'single', { avoidEscape: true }],
+      semi: ['error', 'never'],
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'eol-last': ['error', 'always'],
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      eqeqeq: ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-useless-return': 'warn',
+      'no-else-return': 'warn',
+      'no-unexpected-multiline': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'vue/html-quotes': ['error', 'single', { avoidEscape: true }],
+      'vue/html-indent': ['error', 2],
+      'vue/attributes-order': ['error', { alphabetical: true }],
+      'vue/multi-word-component-names': 'off',
+      'vue/no-unused-components': 'warn',
+      'no-undef': 'off',
+      'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
+      'import/no-relative-parent-imports': 'error',
+      'import/no-relative-packages': 'error',
+    },
+  },
+
+  {
+    files: ['**/*.astro'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+]
+"
+`;
+
+exports[`buildConfigSource > snapshot: base (JS) 1`] = `
+"
+export default [
+  {
+    files: ['**/*.{js,jsx,mjs,cjs}'],
+    rules: {
+      quotes: ['error', 'single', { avoidEscape: true }],
+      semi: ['error', 'never'],
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'eol-last': ['error', 'always'],
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      eqeqeq: ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-useless-return': 'warn',
+      'no-else-return': 'warn',
+      'no-unexpected-multiline': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+    },
+  },
+]
+"
+`;
+
 exports[`buildConfigSource > snapshot: base + TS + absolutePath 1`] = `
 "import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
@@ -318,30 +612,6 @@ export default [
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
       'import/no-relative-parent-imports': 'error',
       'import/no-relative-packages': 'error',
-    },
-  },
-]
-"
-`;
-
-exports[`buildConfigSource > snapshot: base only (JS) 1`] = `
-"
-export default [
-  {
-    files: ['**/*.{js,jsx,mjs,cjs}'],
-    rules: {
-      quotes: ['error', 'single', { avoidEscape: true }],
-      semi: ['error', 'never'],
-      indent: ['error', 2, { SwitchCase: 1 }],
-      'eol-last': ['error', 'always'],
-      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
-      eqeqeq: ['error', 'always'],
-      'no-var': 'error',
-      'prefer-const': 'error',
-      'no-useless-return': 'warn',
-      'no-else-return': 'warn',
-      'no-unexpected-multiline': 'error',
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },
 ]

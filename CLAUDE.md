@@ -16,7 +16,7 @@ The package will be an npm installable (`npm install -D frontend-eslint-config`)
 - **Two-phase setup**: install via npm, then run `npx frontend-eslint-config init` for interactive configuration
 - **Template block assembly**: the CLI assembles `eslint.config.js` by combining boilerplate blocks (base, TS, Vue, Astro, absolute-path) based on user answers
 - **Auto-detection**: TypeScript detected from `package.json` devDependencies; package manager detected from lock files
-- **Single framework constraint**: only one framework plugin (Vue or Astro) at a time to avoid parser conflicts
+- **Multi-framework support**: Vue and Astro plugins can be selected simultaneously — they target different file extensions (`.vue` vs `.astro`) so there is no parser conflict. `ConfigOptions.frameworks` is `Array<'vue' | 'astro'>` (empty array = no framework)
 - **Optional absolute-path enforcement**: uses `eslint-plugin-import` + `no-restricted-imports` to ban relative imports
 
 ## Key Dependencies (peer)

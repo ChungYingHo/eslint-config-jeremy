@@ -3,7 +3,7 @@ import * as p from '@clack/prompts'
 import { detectEnvironment } from './detect.js'
 import {
   confirmOverwrite,
-  selectFramework,
+  selectFrameworks,
   confirmAbsolutePath,
   confirmSaveOnFix,
   selectFileExtension,
@@ -16,19 +16,18 @@ import type { ConfigOptions } from '../templates/types.js'
 
 function collectDependencies(options: ConfigOptions): string[] {
   const deps: string[] = []
+  const hasVue = options.frameworks.includes('vue')
+  const hasAstro = options.frameworks.includes('astro')
 
-  if (options.typescript) {
+  if (options.typescript && !hasVue) {
     deps.push('@typescript-eslint/eslint-plugin', '@typescript-eslint/parser')
   }
 
-  if (options.framework === 'vue') {
-    deps.push('eslint-plugin-vue', 'vue-eslint-parser')
-    if (options.typescript) {
-      deps.push('typescript-eslint')
-    }
+  if (hasVue) {
+    deps.push('eslint-plugin-vue', 'vue-eslint-parser', 'typescript-eslint', '@eslint/js')
   }
 
-  if (options.framework === 'astro') {
+  if (hasAstro) {
     deps.push('eslint-plugin-astro')
   }
 
@@ -71,14 +70,14 @@ export async function init(): Promise<void> {
   }
 
   // 3. Prompts
-  const framework = await selectFramework()
+  const frameworks = await selectFrameworks()
   const absolutePath = await confirmAbsolutePath()
   const saveOnFix = await confirmSaveOnFix()
   const fileExtension = await selectFileExtension()
 
   const options: ConfigOptions = {
     typescript: env.hasTypescript,
-    framework,
+    frameworks,
     absolutePath,
     fileExtension,
   }

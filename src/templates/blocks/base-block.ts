@@ -6,6 +6,7 @@ import { absolutePathRules } from '../../rules/absolute-path.js'
 
 export function buildMainBlock(options: ConfigOptions): string[] {
   const lines: string[] = []
+  const hasVue = options.frameworks.includes('vue')
 
   const fileGlobs = options.typescript
     ? "'**/*.{js,ts,tsx,mts,cts}'"
@@ -14,8 +15,9 @@ export function buildMainBlock(options: ConfigOptions): string[] {
   lines.push('  {')
   lines.push(`    files: [${fileGlobs}],`)
 
-  // languageOptions
-  if (options.typescript && options.framework !== 'vue') {
+  // languageOptions — only when TS is enabled and Vue is NOT used
+  // (Vue uses typescript-eslint meta package which handles parser internally)
+  if (options.typescript && !hasVue) {
     lines.push('    languageOptions: {')
     lines.push('      parser: tsParser,')
     lines.push("      ecmaVersion: 'latest',")
@@ -25,7 +27,7 @@ export function buildMainBlock(options: ConfigOptions): string[] {
 
   // plugins
   const plugins: string[] = []
-  if (options.typescript && options.framework !== 'vue') {
+  if (options.typescript && !hasVue) {
     plugins.push("      '@typescript-eslint': tseslint,")
   }
   if (options.absolutePath) {

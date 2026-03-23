@@ -1,6 +1,6 @@
 export interface ConfigOptions {
   typescript: boolean
-  framework: 'vue' | 'astro' | 'none'
+  frameworks: Array<'vue' | 'astro'>
   absolutePath: boolean
   fileExtension: 'js' | 'mjs'
 }

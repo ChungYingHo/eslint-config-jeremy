@@ -6,23 +6,33 @@ import { buildVueSpread, buildVueParserBlock, buildVueRulesBlock } from './block
 
 export function buildConfigSource(options: ConfigOptions): string {
   const lines: string[] = []
+  const hasVue = options.frameworks.includes('vue')
+  const hasAstro = options.frameworks.includes('astro')
 
   // imports
   lines.push(...buildImports(options))
   lines.push('')
   lines.push('export default [')
 
-  if (options.framework === 'astro') {
+  if (hasAstro) {
     lines.push(...buildAstroSpread())
     lines.push('')
-    lines.push(...buildMainBlock(options))
-    lines.push(...buildAstroFileBlock())
-  } else if (options.framework === 'vue') {
+  }
+
+  if (hasVue) {
+    // Vue spread configs + parser setup + combined rules block
     lines.push(...buildVueSpread())
     lines.push(...buildVueParserBlock())
     lines.push(...buildVueRulesBlock(options))
+    if (hasAstro) {
+      lines.push(...buildAstroFileBlock())
+    }
   } else {
+    // No Vue: explicit main block with parser config
     lines.push(...buildMainBlock(options))
+    if (hasAstro) {
+      lines.push(...buildAstroFileBlock())
+    }
   }
 
   lines.push(']')

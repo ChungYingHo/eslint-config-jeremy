@@ -17,7 +17,7 @@ beforeEach(() => {
 describe('writeVscodeSettings', () => {
   const baseOptions: ConfigOptions = {
     typescript: false,
-    framework: 'none',
+    frameworks: [],
     absolutePath: false,
     fileExtension: 'js',
   }
@@ -44,24 +44,34 @@ describe('writeVscodeSettings', () => {
     expect(written['eslint.validate']).toContain('typescriptreact')
   })
 
-  it('includes vue when framework is vue', () => {
+  it('includes vue when frameworks includes vue', () => {
     mockFileExists.mockReturnValue(false)
 
-    writeVscodeSettings('/project', { ...baseOptions, framework: 'vue' })
+    writeVscodeSettings('/project', { ...baseOptions, frameworks: ['vue'] })
 
     const written = JSON.parse(mockWriteFile.mock.calls[0][1])
     expect(written['eslint.validate']).toContain('vue')
     expect(written['eslint.validate']).not.toContain('astro')
   })
 
-  it('includes astro when framework is astro', () => {
+  it('includes astro when frameworks includes astro', () => {
     mockFileExists.mockReturnValue(false)
 
-    writeVscodeSettings('/project', { ...baseOptions, framework: 'astro' })
+    writeVscodeSettings('/project', { ...baseOptions, frameworks: ['astro'] })
 
     const written = JSON.parse(mockWriteFile.mock.calls[0][1])
     expect(written['eslint.validate']).toContain('astro')
     expect(written['eslint.validate']).not.toContain('vue')
+  })
+
+  it('includes both vue and astro when both frameworks are selected', () => {
+    mockFileExists.mockReturnValue(false)
+
+    writeVscodeSettings('/project', { ...baseOptions, frameworks: ['vue', 'astro'] })
+
+    const written = JSON.parse(mockWriteFile.mock.calls[0][1])
+    expect(written['eslint.validate']).toContain('vue')
+    expect(written['eslint.validate']).toContain('astro')
   })
 
   it('merges with existing settings.json', () => {

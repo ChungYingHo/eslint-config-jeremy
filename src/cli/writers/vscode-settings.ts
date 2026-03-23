@@ -9,11 +9,11 @@ function buildEslintValidate(options: ConfigOptions): string[] {
     languages.push('typescript', 'typescriptreact')
   }
 
-  if (options.framework === 'vue') {
+  if (options.frameworks.includes('vue')) {
     languages.push('vue')
   }
 
-  if (options.framework === 'astro') {
+  if (options.frameworks.includes('astro')) {
     languages.push('astro')
   }
 

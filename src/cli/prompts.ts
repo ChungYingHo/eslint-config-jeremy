@@ -1,7 +1,5 @@
 import * as p from '@clack/prompts'
 
-export type FrameworkChoice = 'vue' | 'astro' | 'none'
-
 export async function confirmOverwrite(): Promise<boolean> {
   const result = await p.confirm({
     message: '偵測到已有 ESLint 設定檔，覆蓋後將失去原有自定義設定。是否繼續？',
@@ -13,20 +11,20 @@ export async function confirmOverwrite(): Promise<boolean> {
   return result
 }
 
-export async function selectFramework(): Promise<FrameworkChoice> {
-  const result = await p.select({
-    message: '選擇框架 ESLint plugin（單選）',
+export async function selectFrameworks(): Promise<Array<'vue' | 'astro'>> {
+  const result = await p.multiselect({
+    message: '選擇框架 ESLint plugin（可複選，空白送出為不使用）',
     options: [
-      { value: 'none' as const, label: '不使用框架 plugin' },
       { value: 'vue' as const, label: 'Vue (eslint-plugin-vue)' },
       { value: 'astro' as const, label: 'Astro (eslint-plugin-astro)' },
     ],
+    required: false,
   })
   if (p.isCancel(result)) {
     p.cancel('已取消')
     process.exit(0)
   }
-  return result
+  return result as Array<'vue' | 'astro'>
 }
 
 export async function confirmAbsolutePath(): Promise<boolean> {
