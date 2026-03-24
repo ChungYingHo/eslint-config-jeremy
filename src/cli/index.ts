@@ -13,6 +13,6 @@ if (command === 'init') {
     process.exit(1)
   }
 } else {
-  console.log('Usage: frontend-eslint-config init')
+  console.log('Usage: eslint-config-jeremy init')
   process.exit(1)
 }

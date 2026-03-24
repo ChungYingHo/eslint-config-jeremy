@@ -49,7 +49,7 @@ function collectDependencies(options: ConfigOptions): string[] {
 export async function init(): Promise<void> {
   const cwd = process.cwd()
 
-  p.intro('frontend-eslint-config init')
+  p.intro('eslint-config-jeremy init')
 
   // 1. Detect environment
   const env = detectEnvironment(cwd)

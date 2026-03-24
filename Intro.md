@@ -3,7 +3,7 @@
 
 ### 安裝
 ```
-npm install -D frontend-eslint-config
+npm install -D eslint-config-jeremy
 ```
 套件將透過 peerDependencies 指定相容的版本區間，確保各 plugin 之間版本不衝突：
 - `eslint` ^9.x
@@ -18,12 +18,12 @@ npm install -D frontend-eslint-config
 
 安裝完成後透過 postinstall 印出提示：
 ```
-✔ frontend-eslint-config installed
-→ Run "npx frontend-eslint-config init" to set up your config
+✔ eslint-config-jeremy installed
+→ Run "npx eslint-config-jeremy init" to set up your config
 ```
 
 ### 初始化流程
-執行 `npx frontend-eslint-config init` 後依序進行：
+執行 `npx eslint-config-jeremy init` 後依序進行：
 
 1. 偵測專案環境
     - 檢查 Node.js 版本（ESLint 9+ 需要 Node 18+）

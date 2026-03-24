@@ -4,16 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`frontend-eslint-config` is a shareable ESLint config npm package (not yet implemented). The repository currently contains design specifications in Chinese (Traditional) describing:
+`eslint-config-jeremy` is a shareable ESLint config npm package (not yet implemented). The repository currently contains design specifications in Chinese (Traditional) describing:
 
-- **Intro.md** — Package functionality, installation flow, interactive init CLI (`npx frontend-eslint-config init`), and example configs for Astro and Vue projects
+- **Intro.md** — Package functionality, installation flow, interactive init CLI (`npx eslint-config-jeremy init`), and example configs for Astro and Vue projects
 - **Rules.md** — Complete rule definitions: base rules, TypeScript rules, Vue rules, and absolute-path import rules
 
 ## Planned Architecture
 
-The package will be an npm installable (`npm install -D frontend-eslint-config`) targeting ESLint 9+ / Node 18+. Key design decisions:
+The package will be an npm installable (`npm install -D eslint-config-jeremy`) targeting ESLint 9+ / Node 18+. Key design decisions:
 
-- **Two-phase setup**: install via npm, then run `npx frontend-eslint-config init` for interactive configuration
+- **Two-phase setup**: install via npm, then run `npx eslint-config-jeremy init` for interactive configuration
 - **Template block assembly**: the CLI assembles `eslint.config.js` by combining boilerplate blocks (base, TS, Vue, Astro, absolute-path) based on user answers
 - **Auto-detection**: TypeScript detected from `package.json` devDependencies; package manager detected from lock files
 - **Multi-framework support**: Vue and Astro plugins can be selected simultaneously — they target different file extensions (`.vue` vs `.astro`) so there is no parser conflict. `ConfigOptions.frameworks` is `Array<'vue' | 'astro'>` (empty array = no framework)

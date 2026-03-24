@@ -1,10 +1,10 @@
 {
-  "name": "frontend-eslint-config",
+  "name": "eslint-config-jeremy",
   "version": "0.1.0",
   "description": "Shareable ESLint 9+/10 flat config with interactive CLI setup",
   "type": "module",
   "bin": {
-    "frontend-eslint-config": "./dist/cli/index.js"
+    "eslint-config-jeremy": "./dist/cli/index.js"
   },
   "exports": {
     ".": {

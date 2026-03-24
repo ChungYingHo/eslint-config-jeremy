@@ -1,8 +1,8 @@
-# frontend-eslint-config
+# eslint-config-jeremy
 
-[![npm version](https://img.shields.io/npm/v/frontend-eslint-config)](https://www.npmjs.com/package/frontend-eslint-config)
-[![node](https://img.shields.io/node/v/frontend-eslint-config)](https://nodejs.org)
-[![license](https://img.shields.io/npm/l/frontend-eslint-config)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/eslint-config-jeremy)](https://www.npmjs.com/package/eslint-config-jeremy)
+[![node](https://img.shields.io/node/v/eslint-config-jeremy)](https://nodejs.org)
+[![license](https://img.shields.io/npm/l/eslint-config-jeremy)](./LICENSE)
 
 適用於 Astro / Vue 專案的 ESLint 9+ 共用設定，附互動式 CLI 一鍵初始化。
 
@@ -25,13 +25,13 @@ Shareable ESLint 9+ flat config for Astro / Vue projects with an interactive CLI
 ## 安裝 Installation
 
 ```bash
-npm install -D frontend-eslint-config
+npm install -D eslint-config-jeremy
 ```
 
 安裝完成後執行初始化：
 
 ```bash
-npx frontend-eslint-config init
+npx eslint-config-jeremy init
 ```
 
 ---

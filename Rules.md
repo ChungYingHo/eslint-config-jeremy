@@ -1,6 +1,6 @@
 # Rules 說明
 
-此文件列出 frontend-eslint-config 所使用的預設規則、TypeScript 規則、Vue 規則，以及絕對路徑規則，並說明每條規則的用途。
+此文件列出 eslint-config-jeremy 所使用的預設規則、TypeScript 規則、Vue 規則，以及絕對路徑規則，並說明每條規則的用途。
 
 ---
 
