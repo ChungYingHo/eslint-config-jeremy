@@ -1,7 +1,7 @@
 {
   "name": "frontend-eslint-config",
   "version": "0.1.0",
-  "description": "Shareable ESLint 9+ flat config with interactive CLI setup",
+  "description": "Shareable ESLint 9+/10 flat config with interactive CLI setup",
   "type": "module",
   "bin": {
     "frontend-eslint-config": "./dist/cli/index.js"
@@ -24,10 +24,10 @@
     "prepublishOnly": "npm run build && npm run test:run"
   },
   "peerDependencies": {
-    "@eslint/js": "^9.0.0",
+    "@eslint/js": "^9.0.0 || ^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.0.0 || ^10.0.0",
     "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-astro": "^2.0.0",
     "eslint-plugin-import": "^2.29.0",
