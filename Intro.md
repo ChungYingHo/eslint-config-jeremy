@@ -10,7 +10,7 @@ npm install -D eslint-config-jeremy
 - `@typescript-eslint/eslint-plugin` ^8.x
 - `@typescript-eslint/parser` ^8.x
 - `eslint-plugin-vue` ^10.x
-- `eslint-plugin-astro` ^2.x
+- `eslint-plugin-astro` ^1.x
 - `eslint-plugin-import-x` ^4.x
 - `eslint-import-resolver-typescript` ^4.x
 
