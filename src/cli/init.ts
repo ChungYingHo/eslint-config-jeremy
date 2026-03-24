@@ -24,7 +24,10 @@ function collectDependencies(options: ConfigOptions): string[] {
   }
 
   if (hasVue) {
-    deps.push('eslint-plugin-vue', 'vue-eslint-parser', 'typescript-eslint', '@eslint/js')
+    deps.push('eslint-plugin-vue', 'vue-eslint-parser', '@eslint/js')
+    if (options.typescript) {
+      deps.push('typescript-eslint')
+    }
   }
 
   if (hasAstro) {

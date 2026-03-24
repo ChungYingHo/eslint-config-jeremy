@@ -24,15 +24,21 @@
     "prepublishOnly": "npm run build && npm run test:run"
   },
   "peerDependencies": {
+    "@eslint/js": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
     "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-astro": "^2.0.0",
     "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-vue": "^10.0.0"
+    "eslint-plugin-vue": "^10.0.0",
+    "typescript-eslint": "^8.0.0",
+    "vue-eslint-parser": "^9.0.0"
   },
   "peerDependenciesMeta": {
+    "@eslint/js": {
+      "optional": true
+    },
     "@typescript-eslint/eslint-plugin": {
       "optional": true
     },
@@ -49,6 +55,12 @@
       "optional": true
     },
     "eslint-import-resolver-typescript": {
+      "optional": true
+    },
+    "typescript-eslint": {
+      "optional": true
+    },
+    "vue-eslint-parser": {
       "optional": true
     }
   },

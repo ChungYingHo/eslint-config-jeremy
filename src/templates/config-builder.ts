@@ -21,8 +21,8 @@ export function buildConfigSource(options: ConfigOptions): string {
 
   if (hasVue) {
     // Vue spread configs + parser setup + combined rules block
-    lines.push(...buildVueSpread())
-    lines.push(...buildVueParserBlock())
+    lines.push(...buildVueSpread(options))
+    lines.push(...buildVueParserBlock(options))
     lines.push(...buildVueRulesBlock(options))
     if (hasAstro) {
       lines.push(...buildAstroFileBlock())

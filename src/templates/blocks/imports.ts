@@ -11,7 +11,9 @@ export function buildImports(options: ConfigOptions): string[] {
 
   if (hasVue) {
     lines.push("import eslint from '@eslint/js'")
-    lines.push("import tseslint from 'typescript-eslint'")
+    if (options.typescript) {
+      lines.push("import tseslint from 'typescript-eslint'")
+    }
     lines.push("import eslintPluginVue from 'eslint-plugin-vue'")
     lines.push("import vueParser from 'vue-eslint-parser'")
   }

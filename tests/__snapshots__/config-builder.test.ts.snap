@@ -197,7 +197,6 @@ export default [
 exports[`buildConfigSource > snapshot: astro + vue (JS) 1`] = `
 "import astro from 'eslint-plugin-astro'
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 
@@ -205,7 +204,6 @@ export default [
   ...astro.configs.recommended,
 
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
   ...eslintPluginVue.configs['flat/recommended'],
 
   {
@@ -213,7 +211,6 @@ export default [
     languageOptions: {
       parser: vueParser,
       parserOptions: {
-        parser: tseslint.parser,
         sourceType: 'module',
         extraFileExtensions: ['.vue'],
       },
@@ -404,7 +401,6 @@ export default [
 exports[`buildConfigSource > snapshot: astro + vue + absolutePath 1`] = `
 "import astro from 'eslint-plugin-astro'
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 import importPlugin from 'eslint-plugin-import'
@@ -413,7 +409,6 @@ export default [
   ...astro.configs.recommended,
 
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
   ...eslintPluginVue.configs['flat/recommended'],
 
   {
@@ -421,7 +416,6 @@ export default [
     languageOptions: {
       parser: vueParser,
       parserOptions: {
-        parser: tseslint.parser,
         sourceType: 'module',
         extraFileExtensions: ['.vue'],
       },
@@ -620,13 +614,11 @@ export default [
 
 exports[`buildConfigSource > snapshot: vue (JS) 1`] = `
 "import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 
 export default [
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
   ...eslintPluginVue.configs['flat/recommended'],
 
   {
@@ -634,7 +626,6 @@ export default [
     languageOptions: {
       parser: vueParser,
       parserOptions: {
-        parser: tseslint.parser,
         sourceType: 'module',
         extraFileExtensions: ['.vue'],
       },
@@ -797,14 +788,12 @@ export default [
 
 exports[`buildConfigSource > snapshot: vue + absolutePath (JS) 1`] = `
 "import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 import importPlugin from 'eslint-plugin-import'
 
 export default [
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
   ...eslintPluginVue.configs['flat/recommended'],
 
   {
@@ -812,7 +801,6 @@ export default [
     languageOptions: {
       parser: vueParser,
       parserOptions: {
-        parser: tseslint.parser,
         sourceType: 'module',
         extraFileExtensions: ['.vue'],
       },
