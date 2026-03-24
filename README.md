@@ -18,7 +18,7 @@ Shareable ESLint 9+ flat config for Astro / Vue projects with an interactive CLI
 ## 需求 Requirements
 
 - Node.js ≥ 18
-- ESLint ^9.0.0
+- ESLint ^9.0.0 || ^10.0.0
 
 ---
 
@@ -59,7 +59,7 @@ CLI 會依序進行：
 import astro from 'eslint-plugin-astro'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   ...astro.configs.recommended,
@@ -73,13 +73,19 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      import: importPlugin,
+      'import-x': importPlugin,
+    },
+    settings: {
+      'import-x/resolver': {
+        typescript: {},
+      },
     },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -102,8 +108,8 @@ export default [
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 
@@ -150,6 +156,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
