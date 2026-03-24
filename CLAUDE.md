@@ -25,6 +25,10 @@ The package will be an npm installable (`npm install -D frontend-eslint-config`)
 - `eslint-plugin-vue` ^10.x, `eslint-plugin-astro` ^2.x
 - `eslint-plugin-import` ^2.x, `eslint-import-resolver-typescript` ^4.x
 
+## Pending Fixes
+
+審查發現的待修 bug 及修正步驟見 [TODO.md](./TODO.md)，包含 2 個 CRITICAL（Vue 缺 plugin 註冊、缺 TS resolver settings）、3 個 MEDIUM（文件/規則不一致）、1 個 LOW（缺 tsconfig 檢查）。
+
 ## Collaboration Rules
 
 - **回覆格式**：每次對話或調整結束時，必須以「親愛的 Jeremy」開頭，用中文撰寫本次調整的 summary。

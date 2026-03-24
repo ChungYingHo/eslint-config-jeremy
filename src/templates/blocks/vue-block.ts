@@ -49,12 +49,26 @@ export function buildVueRulesBlock(options: ConfigOptions): string[] {
     Object.assign(allRules, absolutePathRules)
   }
 
-  return [
-    '',
-    '  {',
-    '    rules: {',
-    serializeRules(allRules, 6),
-    '    },',
-    '  },',
-  ]
+  const block: string[] = ['', '  {']
+
+  if (options.absolutePath) {
+    block.push('    plugins: {')
+    block.push('      import: importPlugin,')
+    block.push('    },')
+  }
+
+  if (options.absolutePath && options.typescript) {
+    block.push('    settings: {')
+    block.push("      'import/resolver': {")
+    block.push('        typescript: {},')
+    block.push('      },')
+    block.push('    },')
+  }
+
+  block.push('    rules: {')
+  block.push(serializeRules(allRules, 6))
+  block.push('    },')
+  block.push('  },')
+
+  return block
 }

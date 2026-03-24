@@ -87,11 +87,17 @@ export default [
       '@typescript-eslint': tseslint,
       import: importPlugin,
     },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
 
       eqeqeq: ['error', 'always'],
@@ -121,6 +127,7 @@ export default [
       'import/no-relative-parent-imports': 'error',
       'import/no-relative-packages': 'error',
 
+      '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {
@@ -141,7 +148,7 @@ export default [
 ]
 ```
 
-另外一個以 vue 為主軸的如下：
+另外一個以 vue 為主軸的如下（Vue + TS，此為工具實際產出格式）：
 ```
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
@@ -160,32 +167,47 @@ export default [
       parserOptions: {
         parser: tseslint.parser,
         sourceType: 'module',
-        extraFileExtensions: ['.vue']
-      }
-    }
+        extraFileExtensions: ['.vue'],
+      },
+    },
   },
 
   {
     rules: {
-      // --- 排版與引號 ---
-      'semi': ['error', 'never'],
-      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
-      'quotes': ['error', 'single', { avoidEscape: true }],
-      'vue/html-quotes': ['error', 'single', { avoidEscape: true }],
+      quotes: ['error', 'single', { avoidEscape: true }],
+      semi: ['error', 'never'],
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'eol-last': ['error', 'always'],
       'brace-style': ['error', '1tbs', { allowSingleLine: false }],
-      'indent': ['error', 2, { SwitchCase: 1 }],
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      eqeqeq: ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-useless-return': 'warn',
+      'no-else-return': 'warn',
+      'no-unexpected-multiline': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: false,
+          fixStyle: 'inline-type-imports',
+        },
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'vue/html-quotes': ['error', 'single', { avoidEscape: true }],
       'vue/html-indent': ['error', 2],
-
-      // --- Vue 與 TypeScript 檢查 ---
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      'no-console': 'warn',
       'vue/attributes-order': ['error', { alphabetical: true }],
       'vue/multi-word-component-names': 'off',
       'vue/no-unused-components': 'warn',
-      '@typescript-eslint/no-explicit-any': 'warn'
       'no-undef': 'off',
-    }
-  }
+    },
+  },
 ]
 ```
 

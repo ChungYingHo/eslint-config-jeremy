@@ -14,6 +14,7 @@
 | `semi` | `['error', 'never']` | 禁止行尾分號 |
 | `indent` | `['error', 2, { SwitchCase: 1 }]` | 統一 2 格縮排，switch-case 內縮 1 層 |
 | `eol-last` | `['error', 'always']` | 檔案結尾必須有空行 |
+| `brace-style` | `['error', '1tbs', { allowSingleLine: false }]` | 強制 1TBS 大括號風格：`{` 不換行至下一行，禁止單行寫法（如 `if (x) { return }`) |
 | `no-multiple-empty-lines` | `['error', { max: 1, maxEOF: 1 }]` | 最多允許連續 1 行空行，檔案末尾最多 1 行空行 |
 
 ### 程式碼品質

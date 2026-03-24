@@ -39,6 +39,15 @@ export function buildMainBlock(options: ConfigOptions): string[] {
     lines.push('    },')
   }
 
+  // settings — TS resolver for eslint-plugin-import
+  if (options.absolutePath && options.typescript) {
+    lines.push('    settings: {')
+    lines.push("      'import/resolver': {")
+    lines.push('        typescript: {},')
+    lines.push('      },')
+    lines.push('    },')
+  }
+
   // rules
   const allRules: Record<string, unknown> = { ...baseRules }
   if (options.typescript) {

@@ -28,9 +28,11 @@ export function writeVscodeSettings(cwd: string, options: ConfigOptions): void {
     existing = readJsonFile(settingsPath) ?? {}
   }
 
+  const existingCodeActions = (existing['editor.codeActionsOnSave'] as Record<string, unknown>) ?? {}
   const merged = {
     ...existing,
     'editor.codeActionsOnSave': {
+      ...existingCodeActions,
       'source.fixAll.eslint': 'explicit',
     },
     'eslint.validate': buildEslintValidate(options),

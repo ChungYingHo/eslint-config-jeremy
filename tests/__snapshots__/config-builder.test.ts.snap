@@ -13,6 +13,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -54,11 +55,17 @@ export default [
       '@typescript-eslint': tseslint,
       import: importPlugin,
     },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -119,6 +126,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -170,6 +178,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -223,6 +232,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -278,11 +288,20 @@ export default [
   },
 
   {
+    plugins: {
+      import: importPlugin,
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -358,6 +377,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -423,11 +443,15 @@ export default [
   },
 
   {
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -459,8 +483,7 @@ export default [
 `;
 
 exports[`buildConfigSource > snapshot: base (JS) 1`] = `
-"
-export default [
+"export default [
   {
     files: ['**/*.{js,jsx,mjs,cjs}'],
     rules: {
@@ -468,6 +491,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -499,11 +523,17 @@ export default [
       '@typescript-eslint': tseslint,
       import: importPlugin,
     },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -554,6 +584,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -595,6 +626,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -638,6 +670,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -683,11 +716,20 @@ export default [
   },
 
   {
+    plugins: {
+      import: importPlugin,
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -753,6 +795,7 @@ export default [
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
@@ -808,11 +851,15 @@ export default [
   },
 
   {
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
       eqeqeq: ['error', 'always'],
       'no-var': 'error',

@@ -84,4 +84,23 @@ describe('writeVscodeSettings', () => {
     expect(written['editor.fontSize']).toBe(14)
     expect(written['editor.codeActionsOnSave']).toBeDefined()
   })
+
+  it('preserves existing codeActionsOnSave settings', () => {
+    mockFileExists.mockReturnValue(true)
+    mockReadJsonFile.mockReturnValue({
+      'editor.codeActionsOnSave': {
+        'source.organizeImports': 'explicit',
+        'source.fixAll.prettier': 'explicit',
+      },
+    })
+
+    writeVscodeSettings('/project', baseOptions)
+
+    const written = JSON.parse(mockWriteFile.mock.calls[0][1])
+    expect(written['editor.codeActionsOnSave']).toEqual({
+      'source.organizeImports': 'explicit',
+      'source.fixAll.prettier': 'explicit',
+      'source.fixAll.eslint': 'explicit',
+    })
+  })
 })

@@ -1,4 +1,5 @@
 import { execSync } from 'node:child_process'
+import path from 'node:path'
 import * as p from '@clack/prompts'
 import { detectEnvironment } from './detect.js'
 import {
@@ -11,6 +12,7 @@ import {
 import { writeEslintConfig } from './writers/eslint-config.js'
 import { writeVscodeSettings } from './writers/vscode-settings.js'
 import { buildInstallCommand } from '../utils/package-manager.js'
+import { fileExists } from '../utils/fs.js'
 import { logger } from '../utils/logger.js'
 import type { ConfigOptions } from '../templates/types.js'
 
@@ -83,6 +85,19 @@ export async function init(): Promise<void> {
     frameworks,
     absolutePath,
     fileExtension,
+  }
+
+  // Check tsconfig/jsconfig when absolutePath is enabled
+  if (absolutePath) {
+    if (env.hasTypescript) {
+      if (!fileExists(path.join(cwd, 'tsconfig.json'))) {
+        logger.warn('需要在 tsconfig.json 設定 baseUrl + paths')
+      }
+    } else {
+      if (!fileExists(path.join(cwd, 'jsconfig.json'))) {
+        logger.warn('需要建立 jsconfig.json 設定 baseUrl + paths')
+      }
+    }
   }
 
   // 4. Write eslint config

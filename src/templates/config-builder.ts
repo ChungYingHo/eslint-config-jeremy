@@ -10,8 +10,11 @@ export function buildConfigSource(options: ConfigOptions): string {
   const hasAstro = options.frameworks.includes('astro')
 
   // imports
-  lines.push(...buildImports(options))
-  lines.push('')
+  const imports = buildImports(options)
+  lines.push(...imports)
+  if (imports.length > 0) {
+    lines.push('')
+  }
   lines.push('export default [')
 
   if (hasAstro) {
