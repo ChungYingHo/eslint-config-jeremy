@@ -16,16 +16,27 @@ const LOCK_FILE_MAP: Record<string, PackageManager> = {
   'bun.lockb': 'bun',
 }
 
-const ESLINT_CONFIG_FILES = [
+const ESLINT_FLAT_CONFIG_FILES = [
   'eslint.config.js',
   'eslint.config.mjs',
   'eslint.config.cjs',
+  'eslint.config.ts',
+  'eslint.config.mts',
+  'eslint.config.cts',
+]
+
+const ESLINT_LEGACY_CONFIG_FILES = [
   '.eslintrc',
   '.eslintrc.js',
   '.eslintrc.cjs',
   '.eslintrc.json',
   '.eslintrc.yml',
   '.eslintrc.yaml',
+]
+
+const ESLINT_CONFIG_FILES = [
+  ...ESLINT_FLAT_CONFIG_FILES,
+  ...ESLINT_LEGACY_CONFIG_FILES,
 ]
 
 export function detectPackageManager(cwd: string): PackageManager {
@@ -39,6 +50,10 @@ export function detectPackageManager(cwd: string): PackageManager {
 
 export function detectExistingEslintConfig(cwd: string): boolean {
   return ESLINT_CONFIG_FILES.some(file => fileExists(path.join(cwd, file)))
+}
+
+export function findExistingEslintConfigs(cwd: string): string[] {
+  return ESLINT_CONFIG_FILES.filter(file => fileExists(path.join(cwd, file)))
 }
 
 export function detectTypescript(cwd: string): boolean {

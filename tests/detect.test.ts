@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { detectPackageManager, detectExistingEslintConfig, detectTypescript, checkNodeVersion } from '../src/cli/detect.js'
+import { detectPackageManager, detectExistingEslintConfig, findExistingEslintConfigs, detectTypescript, checkNodeVersion } from '../src/cli/detect.js'
 import * as fsUtils from '../src/utils/fs.js'
 
 vi.mock('../src/utils/fs.js')
@@ -49,9 +49,31 @@ describe('detectExistingEslintConfig', () => {
     expect(detectExistingEslintConfig('/project')).toBe(true)
   })
 
+  it('returns true when eslint.config.ts exists (create-vue)', () => {
+    mockFileExists.mockImplementation(p => p.endsWith('eslint.config.ts'))
+    expect(detectExistingEslintConfig('/project')).toBe(true)
+  })
+
   it('returns false when no config found', () => {
     mockFileExists.mockReturnValue(false)
     expect(detectExistingEslintConfig('/project')).toBe(false)
+  })
+})
+
+describe('findExistingEslintConfigs', () => {
+  it('returns all existing config files', () => {
+    mockFileExists.mockImplementation(p =>
+      p.endsWith('eslint.config.ts') || p.endsWith('eslint.config.js'),
+    )
+    const configs = findExistingEslintConfigs('/project')
+    expect(configs).toContain('eslint.config.ts')
+    expect(configs).toContain('eslint.config.js')
+    expect(configs).toHaveLength(2)
+  })
+
+  it('returns empty array when no configs found', () => {
+    mockFileExists.mockReturnValue(false)
+    expect(findExistingEslintConfigs('/project')).toEqual([])
   })
 })
 
