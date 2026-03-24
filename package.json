@@ -1,7 +1,16 @@
 {
   "name": "eslint-config-jeremy",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Shareable ESLint 9+/10 flat config with interactive CLI setup",
+  "author": "Jeremy Chung-Ying Ho",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "flat-config",
+    "vue",
+    "astro",
+    "typescript"
+  ],
   "type": "module",
   "bin": {
     "eslint-config-jeremy": "./dist/cli/index.js"

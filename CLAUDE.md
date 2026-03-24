@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`eslint-config-jeremy` is a shareable ESLint config npm package (not yet implemented). The repository currently contains design specifications in Chinese (Traditional) describing:
+`eslint-config-jeremy` is a shareable ESLint config npm package with an interactive CLI. Design specifications in Chinese (Traditional):
 
 - **Intro.md** — Package functionality, installation flow, interactive init CLI (`npx eslint-config-jeremy init`), and example configs for Astro and Vue projects
 - **Rules.md** — Complete rule definitions: base rules, TypeScript rules, Vue rules, and absolute-path import rules
 
-## Planned Architecture
+## Architecture
 
-The package will be an npm installable (`npm install -D eslint-config-jeremy`) targeting ESLint 9+ / Node 18+. Key design decisions:
+npm installable (`npm install -D eslint-config-jeremy`) targeting ESLint 9+/10 / Node 18+. Key design decisions:
 
 - **Two-phase setup**: install via npm, then run `npx eslint-config-jeremy init` for interactive configuration
 - **Template block assembly**: the CLI assembles `eslint.config.js` by combining boilerplate blocks (base, TS, Vue, Astro, absolute-path) based on user answers
