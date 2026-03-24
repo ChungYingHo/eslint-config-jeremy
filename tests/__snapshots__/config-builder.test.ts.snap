@@ -39,7 +39,7 @@ exports[`buildConfigSource > snapshot: astro + TS + absolutePath 1`] = `
 "import astro from 'eslint-plugin-astro'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   ...astro.configs.recommended,
@@ -53,10 +53,10 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: {},
       },
     },
@@ -88,8 +88,8 @@ export default [
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 
@@ -163,7 +163,7 @@ export default [
 
 exports[`buildConfigSource > snapshot: astro + absolutePath (JS) 1`] = `
 "import astro from 'eslint-plugin-astro'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   ...astro.configs.recommended,
@@ -171,7 +171,7 @@ export default [
   {
     files: ['**/*.{js,jsx,mjs,cjs}'],
     plugins: {
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
@@ -188,8 +188,8 @@ export default [
       'no-unexpected-multiline': 'error',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 
@@ -266,7 +266,7 @@ import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   ...astro.configs.recommended,
@@ -289,10 +289,10 @@ export default [
 
   {
     plugins: {
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: {},
       },
     },
@@ -330,8 +330,8 @@ export default [
       'vue/no-unused-components': 'warn',
       'no-undef': 'off',
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 
@@ -423,7 +423,7 @@ exports[`buildConfigSource > snapshot: astro + vue + absolutePath 1`] = `
 import eslint from '@eslint/js'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   ...astro.configs.recommended,
@@ -444,7 +444,7 @@ export default [
 
   {
     plugins: {
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
@@ -467,8 +467,8 @@ export default [
       'vue/no-unused-components': 'warn',
       'no-undef': 'off',
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 
@@ -509,7 +509,7 @@ exports[`buildConfigSource > snapshot: base (JS) 1`] = `
 exports[`buildConfigSource > snapshot: base + TS + absolutePath 1`] = `
 "import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   {
@@ -521,10 +521,10 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: {},
       },
     },
@@ -556,8 +556,8 @@ export default [
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 ]
@@ -613,13 +613,13 @@ export default [
 `;
 
 exports[`buildConfigSource > snapshot: base + absolutePath (JS) 1`] = `
-"import importPlugin from 'eslint-plugin-import'
+"import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   {
     files: ['**/*.{js,jsx,mjs,cjs}'],
     plugins: {
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
@@ -636,8 +636,8 @@ export default [
       'no-unexpected-multiline': 'error',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 ]
@@ -696,7 +696,7 @@ exports[`buildConfigSource > snapshot: vue + TS + absolutePath 1`] = `
 import tseslint from 'typescript-eslint'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   eslint.configs.recommended,
@@ -717,10 +717,10 @@ export default [
 
   {
     plugins: {
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: {},
       },
     },
@@ -758,8 +758,8 @@ export default [
       'vue/no-unused-components': 'warn',
       'no-undef': 'off',
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 ]
@@ -833,7 +833,7 @@ exports[`buildConfigSource > snapshot: vue + absolutePath (JS) 1`] = `
 "import eslint from '@eslint/js'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   eslint.configs.recommended,
@@ -852,7 +852,7 @@ export default [
 
   {
     plugins: {
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
@@ -875,8 +875,8 @@ export default [
       'vue/no-unused-components': 'warn',
       'no-undef': 'off',
       'no-restricted-imports': ['error', { patterns: ['../*', './*'] }],
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
     },
   },
 ]

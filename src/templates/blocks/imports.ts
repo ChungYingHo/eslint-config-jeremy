@@ -24,7 +24,7 @@ export function buildImports(options: ConfigOptions): string[] {
   }
 
   if (options.absolutePath) {
-    lines.push("import importPlugin from 'eslint-plugin-import'")
+    lines.push("import importPlugin from 'eslint-plugin-import-x'")
   }
 
   return lines

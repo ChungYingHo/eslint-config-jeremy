@@ -53,13 +53,13 @@ export function buildVueRulesBlock(options: ConfigOptions): string[] {
 
   if (options.absolutePath) {
     block.push('    plugins: {')
-    block.push('      import: importPlugin,')
+    block.push("      'import-x': importPlugin,")
     block.push('    },')
   }
 
   if (options.absolutePath && options.typescript) {
     block.push('    settings: {')
-    block.push("      'import/resolver': {")
+    block.push("      'import-x/resolver': {")
     block.push('        typescript: {},')
     block.push('      },')
     block.push('    },')

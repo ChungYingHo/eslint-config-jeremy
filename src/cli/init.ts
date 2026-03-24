@@ -37,7 +37,7 @@ function collectDependencies(options: ConfigOptions): string[] {
   }
 
   if (options.absolutePath) {
-    deps.push('eslint-plugin-import')
+    deps.push('eslint-plugin-import-x')
     if (options.typescript) {
       deps.push('eslint-import-resolver-typescript')
     }

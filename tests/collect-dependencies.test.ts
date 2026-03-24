@@ -25,7 +25,7 @@ function collectDependencies(options: ConfigOptions): string[] {
   }
 
   if (options.absolutePath) {
-    deps.push('eslint-plugin-import')
+    deps.push('eslint-plugin-import-x')
     if (options.typescript) {
       deps.push('eslint-import-resolver-typescript')
     }
@@ -74,12 +74,12 @@ describe('collectDependencies', () => {
 
   it('absolutePath JS — installs import plugin only', () => {
     const deps = collectDependencies({ typescript: false, frameworks: [], absolutePath: true, fileExtension: 'js' })
-    expect(deps).toEqual(['eslint-plugin-import'])
+    expect(deps).toEqual(['eslint-plugin-import-x'])
   })
 
   it('absolutePath TS — installs import plugin + resolver', () => {
     const deps = collectDependencies({ typescript: true, frameworks: [], absolutePath: true, fileExtension: 'js' })
-    expect(deps).toContain('eslint-plugin-import')
+    expect(deps).toContain('eslint-plugin-import-x')
     expect(deps).toContain('eslint-import-resolver-typescript')
   })
 })

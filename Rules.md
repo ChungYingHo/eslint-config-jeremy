@@ -65,12 +65,12 @@
 
 ## 絕對路徑 Rules（選用）
 
-使用者選擇強制絕對路徑時啟用。需安裝 `eslint-plugin-import`，若有 TS 則額外安裝 `eslint-import-resolver-typescript`。
+使用者選擇強制絕對路徑時啟用。需安裝 `eslint-plugin-import-x`，若有 TS 則額外安裝 `eslint-import-resolver-typescript`。
 
 | Rule | 設定 | 說明 |
 |------|------|------|
 | `no-restricted-imports` | `['error', { patterns: ['../*', './*'] }]` | 禁止所有相對路徑 import，從 ESLint 原生層級攔截 |
-| `import/no-relative-parent-imports` | `'error'` | 禁止 `../` 形式的父層相對路徑 import |
-| `import/no-relative-packages` | `'error'` | 禁止跨 package 的相對路徑 import（monorepo 情境適用） |
+| `import-x/no-relative-parent-imports` | `'error'` | 禁止 `../` 形式的父層相對路徑 import |
+| `import-x/no-relative-packages` | `'error'` | 禁止跨 package 的相對路徑 import（monorepo 情境適用） |
 
 > 啟用絕對路徑時，專案需設定路徑別名。有 TS 的專案在 `tsconfig.json` 中設定 `baseUrl` + `paths`；純 JS 專案則需建立 `jsconfig.json` 做對應設定。

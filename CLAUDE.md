@@ -17,17 +17,13 @@ The package will be an npm installable (`npm install -D frontend-eslint-config`)
 - **Template block assembly**: the CLI assembles `eslint.config.js` by combining boilerplate blocks (base, TS, Vue, Astro, absolute-path) based on user answers
 - **Auto-detection**: TypeScript detected from `package.json` devDependencies; package manager detected from lock files
 - **Multi-framework support**: Vue and Astro plugins can be selected simultaneously — they target different file extensions (`.vue` vs `.astro`) so there is no parser conflict. `ConfigOptions.frameworks` is `Array<'vue' | 'astro'>` (empty array = no framework)
-- **Optional absolute-path enforcement**: uses `eslint-plugin-import` + `no-restricted-imports` to ban relative imports
+- **Optional absolute-path enforcement**: uses `eslint-plugin-import-x` + `no-restricted-imports` to ban relative imports
 
 ## Key Dependencies (peer)
 
-- `eslint` ^9.x, `@typescript-eslint/eslint-plugin` ^8.x, `@typescript-eslint/parser` ^8.x
+- `eslint` ^9.x / ^10.x, `@typescript-eslint/eslint-plugin` ^8.x, `@typescript-eslint/parser` ^8.x
 - `eslint-plugin-vue` ^10.x, `eslint-plugin-astro` ^2.x
-- `eslint-plugin-import` ^2.x, `eslint-import-resolver-typescript` ^4.x
-
-## Pending Fixes
-
-審查發現的待修 bug 及修正步驟見 [TODO.md](./TODO.md)，包含 2 個 CRITICAL（Vue 缺 plugin 註冊、缺 TS resolver settings）、3 個 MEDIUM（文件/規則不一致）、1 個 LOW（缺 tsconfig 檢查）。
+- `eslint-plugin-import-x` ^4.x, `eslint-import-resolver-typescript` ^4.x
 
 ## Collaboration Rules
 

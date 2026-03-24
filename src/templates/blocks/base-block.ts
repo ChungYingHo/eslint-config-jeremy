@@ -31,7 +31,7 @@ export function buildMainBlock(options: ConfigOptions): string[] {
     plugins.push("      '@typescript-eslint': tseslint,")
   }
   if (options.absolutePath) {
-    plugins.push('      import: importPlugin,')
+    plugins.push("      'import-x': importPlugin,")
   }
   if (plugins.length > 0) {
     lines.push('    plugins: {')
@@ -42,7 +42,7 @@ export function buildMainBlock(options: ConfigOptions): string[] {
   // settings — TS resolver for eslint-plugin-import
   if (options.absolutePath && options.typescript) {
     lines.push('    settings: {')
-    lines.push("      'import/resolver': {")
+    lines.push("      'import-x/resolver': {")
     lines.push('        typescript: {},')
     lines.push('      },')
     lines.push('    },')

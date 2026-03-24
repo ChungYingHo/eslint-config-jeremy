@@ -11,7 +11,7 @@ npm install -D frontend-eslint-config
 - `@typescript-eslint/parser` ^8.x
 - `eslint-plugin-vue` ^10.x
 - `eslint-plugin-astro` ^2.x
-- `eslint-plugin-import` ^2.x
+- `eslint-plugin-import-x` ^4.x
 - `eslint-import-resolver-typescript` ^4.x
 
 > 以上版本區間為初版預估值，實際開發時需驗證各 plugin 之間的相容性後確定。
@@ -71,7 +71,7 @@ npm install -D frontend-eslint-config
 import astro from 'eslint-plugin-astro'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 export default [
   ...astro.configs.recommended,
@@ -85,10 +85,10 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: {},
       },
     },
@@ -124,8 +124,8 @@ export default [
         },
       ],
 
-      'import/no-relative-parent-imports': 'error',
-      'import/no-relative-packages': 'error',
+      'import-x/no-relative-parent-imports': 'error',
+      'import-x/no-relative-packages': 'error',
 
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/consistent-type-imports': [

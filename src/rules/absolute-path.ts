@@ -5,6 +5,6 @@ export const absolutePathRules = {
       patterns: ['../*', './*'],
     },
   ],
-  'import/no-relative-parent-imports': 'error',
-  'import/no-relative-packages': 'error',
+  'import-x/no-relative-parent-imports': 'error',
+  'import-x/no-relative-packages': 'error',
 } as const
